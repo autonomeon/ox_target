@@ -7,6 +7,11 @@ on:
     tags:
       - "v*.*.*"
 
+# The org's default workflow token is read-only, so the release step cannot
+# create a release without this. Upstream relies on its own org default.
+permissions:
+  contents: write
+
 jobs:
   create-release:
     runs-on: ubuntu-latest
